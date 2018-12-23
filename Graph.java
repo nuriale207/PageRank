@@ -270,11 +270,6 @@ public class Graph {
 			indice++;
 		}
 		
-		
-		
-		
-		
-		
 		double valorInicial=1.0/keys.length;
 		
 		int i2=0;
@@ -371,8 +366,8 @@ public class Graph {
 		}
 	}
 	private  void mergeSort(ArrayList<Par> lista,int inicio, int fin) {
-		//Pre:la lista de webs contiene al menos un elemento
-		//Post: realiza llamadas recursivas para ordenar el diccionario
+		//Pre:la lista de pares contiene al menos un elemento
+		//Post: realiza llamadas recursivas para ordenar la lista de pares
 		if(fin-inicio>0) {
 		mergeSort(lista, inicio, (inicio+fin)/2);
 		mergeSort(lista, (((inicio+fin)/2)+1),fin);

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
-
+import java.util.Random;
+import java.security.SecureRandom;
+import java.math.BigInteger;
 public class Main {
 	public static void main (String [ ] args) {
 		
@@ -62,14 +64,20 @@ public class Main {
 		
 		g1=new Graph();
 		g1.crearGrafo(ListaWebs.getListaWebs());
+		System.out.println(g1.pageRankWebs);
 		
 		System.out.println(g1.hayCamino("amazon.com", "amazon.com"));
 		System.out.println(g1.hayCamino("booking.com", "booking.com"));
 		
 		System.out.println(g1.pageRank());
-//		g1.imprimir(g1.buscar("a"));
-//		g1.imprimir(g1.buscar("a", "b"));
+		g1.imprimir(g1.buscar("a"));
+		g1.imprimir(g1.buscar("com"));
+		g1.imprimir(g1.buscar("instagram"));
 		
+		g1.imprimir(g1.buscar("instagram", "twitter"));
+		g1.imprimir(g1.buscar("amazon", "zalando"));
+		g1.imprimir(g1.buscar("y", "s"));
+		g1.imprimir(g1.buscar("a", "o"));
 		
 		g2=new Graph();
 		ListaWebs.getListaWebs().resetear();
@@ -79,16 +87,41 @@ public class Main {
 		
 		g2.imprimir(g2.buscar("a"));
 		g2.imprimir(g2.buscar("world", "sea"));
+		g2.imprimir(g2.buscar("a","web"));
+		
+
+		 
 		
 		Graph g3=new Graph();
 		g3=new Graph();
 		ListaWebs.getListaWebs().resetear();
 		ListaWebs.getListaWebs().cargarLista("index.txt", "pld-arcs-1-N.txt");
 		g3.crearGrafo(ListaWebs.getListaWebs());
-		//g3.pageRank();
-		//System.out.println(g3.pageRank());
-		
-		g3.imprimir(g3.buscar("instagram"));
+    	int cont=1;
+    	
+    
+//    	
+//    	while(cont<=1000){
+//    		SecureRandom random = new SecureRandom();
+//   		 	String text = new BigInteger(16, random).toString(32);//se crea un string aleatorio de 3 caracteres
+//   		 	
+//
+//   		 	g3.buscar(text);
+//			cont++;
+//		}
+    	cont=1;
+    	while(cont<=1000){
+    		SecureRandom random = new SecureRandom();
+   		 	String text = new BigInteger(16, random).toString(32);//se crea un string aleatorio de 3 caracteres
+   		 	String text2 = new BigInteger(16, random).toString(32);//se crea un string aleatorio de 3 caracteres
+   		 	System.out.println(text);
+   		 	System.out.println(text2);
+
+   		 	g3.buscar(text,text2);
+			cont++;
+		}
+
+		//g3.imprimir(g3.buscar("instagram"));
 		
 		//g3.imprimir(g3.buscar("world", "sea"));
 		
